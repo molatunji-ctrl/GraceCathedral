@@ -1,0 +1,235 @@
+@import "tailwindcss";
+
+/* Base Styles */
+* {
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+}
+
+/* RESPONSIVE DESIGN BREAKPOINTS */
+/* Mobile: 320px - 480px */
+/* Tablet: 481px - 768px */
+/* Laptop: 769px - 1024px */
+/* Large Screen: 1025px and above */
+
+/* Mobile First Approach - Start small, then add features for larger screens */
+
+/* MOBILE STYLES (320px - 480px) */
+@media (max-width: 480px) {
+    .main-container {
+        flex-direction: column;
+        margin-left: 0 !important;
+    }
+
+    .nav-bar-position {
+        margin-top: 0;
+        padding: 10px;
+    }
+
+    /* Navigation gets hidden on very small screens */
+    .main section {
+        padding: 12px !important;
+    }
+
+    /* Make text smaller on mobile */
+    h1, h2, h3 {
+        font-size: 18px;
+    }
+
+    h4, h5, h6 {
+        font-size: 14px;
+    }
+
+    p {
+        font-size: 12px;
+    }
+
+    /* Reduce spacing on mobile */
+    .gap-10 {
+        gap: 8px !important;
+    }
+
+    /* Make buttons full width on mobile */
+    button {
+        width: 100%;
+    }
+}
+
+/* TABLET STYLES (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        margin-left: 0 !important;
+    }
+
+    .main section {
+        padding: 16px !important;
+    }
+
+    h1, h2, h3 {
+        font-size: 22px;
+    }
+
+    /* Adjust grid for tablet */
+    .grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Make navigation take full width on tablet */
+    .main {
+        position: static !important;
+        width: 100% !important;
+        height: auto !important;
+    }
+}
+
+/* LAPTOP STYLES (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .main-container {
+        margin-left: 250px;
+    }
+
+    .main {
+        width: 250px !important;
+    }
+
+    .max-w-\[1160px\] {
+        max-width: 900px !important;
+    }
+
+    /* Adjust grid for laptop */
+    .md\:grid-cols-2 {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* LARGE SCREEN STYLES (1025px and above) */
+@media (min-width: 1025px) {
+    .main-container {
+        margin-left: 280px;
+    }
+
+    .main {
+        width: 280px !important;
+    }
+
+    /* Two column layout for large screens */
+    .md\:grid-cols-2 {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Three column for very large screens */
+    .xl\:grid-cols-3 {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+/* UTILITY CLASSES FOR RESPONSIVE DESIGN */
+
+/* Responsive padding */
+.responsive-padding {
+    padding: 12px; /* Mobile */
+}
+
+@media (min-width: 481px) {
+    .responsive-padding {
+        padding: 16px; /* Tablet */
+    }
+}
+
+@media (min-width: 769px) {
+    .responsive-padding {
+        padding: 20px; /* Laptop */
+    }
+}
+
+@media (min-width: 1025px) {
+    .responsive-padding {
+        padding: 24px; /* Large Screen */
+    }
+}
+
+/* Responsive font sizes */
+.responsive-heading {
+    font-size: 18px; /* Mobile */
+}
+
+@media (min-width: 481px) {
+    .responsive-heading {
+        font-size: 22px; /* Tablet */
+    }
+}
+
+@media (min-width: 769px) {
+    .responsive-heading {
+        font-size: 28px; /* Laptop */
+    }
+}
+
+@media (min-width: 1025px) {
+    .responsive-heading {
+        font-size: 32px; /* Large Screen */
+    }
+}
+
+/* Responsive text */
+.responsive-text {
+    font-size: 12px; /* Mobile */
+}
+
+@media (min-width: 481px) {
+    .responsive-text {
+        font-size: 13px; /* Tablet */
+    }
+}
+
+@media (min-width: 769px) {
+    .responsive-text {
+        font-size: 14px; /* Laptop */
+    }
+}
+
+@media (min-width: 1025px) {
+    .responsive-text {
+        font-size: 15px; /* Large Screen */
+    }
+}
+
+/* Hide sidebar on mobile and tablet */
+@media (max-width: 768px) {
+    .main {
+        display: none;
+    }
+
+    .main-container {
+        margin-left: 0 !important;
+    }
+}
+
+/* Container max-width adjustments */
+@media (max-width: 480px) {
+    .max-w-\[1160px\] {
+        max-width: 100% !important;
+        padding: 0 12px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .max-w-\[1160px\] {
+        max-width: 100% !important;
+        padding: 0 16px;
+    }
+}
+
+@media (min-width: 769px) {
+    .max-w-\[1160px\] {
+        max-width: 1160px;
+        padding: 0 20px;
+    }
+}
