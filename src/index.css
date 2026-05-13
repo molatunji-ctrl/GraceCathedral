@@ -18,8 +18,6 @@ body {
 /* Laptop: 769px - 1024px */
 /* Large Screen: 1025px and above */
 
-/* Mobile First Approach - Start small, then add features for larger screens */
-
 /* MOBILE STYLES (320px - 480px) */
 @media (max-width: 480px) {
     .main-container {
@@ -32,12 +30,10 @@ body {
         padding: 10px;
     }
 
-    /* Navigation gets hidden on very small screens */
     .main section {
         padding: 12px !important;
     }
 
-    /* Make text smaller on mobile */
     h1, h2, h3 {
         font-size: 18px;
     }
@@ -50,12 +46,10 @@ body {
         font-size: 12px;
     }
 
-    /* Reduce spacing on mobile */
     .gap-10 {
         gap: 8px !important;
     }
 
-    /* Make buttons full width on mobile */
     button {
         width: 100%;
     }
@@ -76,16 +70,18 @@ body {
         font-size: 22px;
     }
 
-    /* Adjust grid for tablet */
     .grid {
         grid-template-columns: 1fr !important;
     }
+}
 
-    /* Make navigation take full width on tablet */
-    .main {
-        position: static !important;
-        width: 100% !important;
-        height: auto !important;
+/* Hide sidebar on mobile/tablet using transform — NOT display:none,
+   so the Tailwind transition classes can animate the slide-in. */
+@media (max-width: 768px) {
+    /* .main is now handled via Tailwind translate classes in Navbar.jsx */
+
+    .main-container {
+        margin-left: 0 !important;
     }
 }
 
@@ -103,7 +99,6 @@ body {
         max-width: 900px !important;
     }
 
-    /* Adjust grid for laptop */
     .md\:grid-cols-2 {
         grid-template-columns: 1fr 1fr;
     }
@@ -119,12 +114,10 @@ body {
         width: 280px !important;
     }
 
-    /* Two column layout for large screens */
     .md\:grid-cols-2 {
         grid-template-columns: 1fr 1fr;
     }
 
-    /* Three column for very large screens */
     .xl\:grid-cols-3 {
         grid-template-columns: 1fr 1fr 1fr;
     }
@@ -132,83 +125,69 @@ body {
 
 /* UTILITY CLASSES FOR RESPONSIVE DESIGN */
 
-/* Responsive padding */
 .responsive-padding {
-    padding: 12px; /* Mobile */
+    padding: 12px;
 }
 
 @media (min-width: 481px) {
     .responsive-padding {
-        padding: 16px; /* Tablet */
+        padding: 16px;
     }
 }
 
 @media (min-width: 769px) {
     .responsive-padding {
-        padding: 20px; /* Laptop */
+        padding: 20px;
     }
 }
 
 @media (min-width: 1025px) {
     .responsive-padding {
-        padding: 24px; /* Large Screen */
+        padding: 24px;
     }
 }
 
-/* Responsive font sizes */
 .responsive-heading {
-    font-size: 18px; /* Mobile */
+    font-size: 18px;
 }
 
 @media (min-width: 481px) {
     .responsive-heading {
-        font-size: 22px; /* Tablet */
+        font-size: 22px;
     }
 }
 
 @media (min-width: 769px) {
     .responsive-heading {
-        font-size: 28px; /* Laptop */
+        font-size: 28px;
     }
 }
 
 @media (min-width: 1025px) {
     .responsive-heading {
-        font-size: 32px; /* Large Screen */
+        font-size: 32px;
     }
 }
 
-/* Responsive text */
 .responsive-text {
-    font-size: 12px; /* Mobile */
+    font-size: 12px;
 }
 
 @media (min-width: 481px) {
     .responsive-text {
-        font-size: 13px; /* Tablet */
+        font-size: 13px;
     }
 }
 
 @media (min-width: 769px) {
     .responsive-text {
-        font-size: 14px; /* Laptop */
+        font-size: 14px;
     }
 }
 
 @media (min-width: 1025px) {
     .responsive-text {
-        font-size: 15px; /* Large Screen */
-    }
-}
-
-/* Hide sidebar on mobile and tablet */
-@media (max-width: 768px) {
-    .main {
-        display: none;
-    }
-
-    .main-container {
-        margin-left: 0 !important;
+        font-size: 15px;
     }
 }
 
