@@ -9,10 +9,27 @@ const navLinkClasses = ({ isActive }) =>
       : 'text-[#D9C292] hover:bg-[#4a1c0b] hover:text-white'
   }`;
 
-function Navbar() {
+function Navbar({ isOpen, onClose }) {
     return (
         <React.Fragment>
-            <section className='main flex flex-col gap-7 fixed h-screen top-0 left-0 w-70 bg-[#5C1F0A] text-white p-6'>
+            <section
+              className={`
+                main flex flex-col gap-7 fixed h-screen top-0 left-0 w-70
+                bg-[#5C1F0A] text-white p-6 z-40
+                transition-transform duration-300 ease-in-out
+                ${isOpen ? 'translate-x-0' : '-translate-x-full'}
+                md:translate-x-0
+              `}
+            >
+               {/* Close button — only visible on mobile */}
+               <button
+                 onClick={onClose}
+                 className="absolute top-4 right-4 md:hidden text-[#D9C292] hover:text-white w-8 h-8 flex items-center justify-center rounded-lg hover:bg-[#4a1c0b] transition"
+                 aria-label="Close navigation"
+               >
+                 <i className="fas fa-times text-[18px]"></i>
+               </button>
+
                <div className='display-logo flex flex-col gap-5 border-b pb-7 border-[#8E5226] '>
                  <div className="main-logo">
                    <img src="Grace_Cathedral.jpg" alt="" width={'35px'} />
@@ -28,20 +45,20 @@ function Navbar() {
                <div className='navigation-display'>
                    <h2 className="text-[11px] text-[#845341]">NAVIGATION</h2>
                    <div className="navigation flex flex-col gap-2 mt-3 border-b pb-35 border-[#8E5226]">
-                      <NavLink to='/' className={navLinkClasses}>
+                      <NavLink to='/' onClick={onClose} className={navLinkClasses}>
                         <i className="fas fa-home text-lg"></i>
                         <span className='text-[15px]'>Home</span>
                       </NavLink>
-                      <NavLink to='/programs' className={navLinkClasses}>
+                      <NavLink to='/programs' onClick={onClose} className={navLinkClasses}>
                         <i className="fas fa-calendar-alt text-lg"></i>
                         <span className='text-[15px]'>Programs</span>
                       </NavLink>
-                      <NavLink to='/announcement' className={navLinkClasses}>
+                      <NavLink to='/announcement' onClick={onClose} className={navLinkClasses}>
                         <i className="fas fa-bell text-lg"></i>
                         <span className='text-[15px]'>Announcements</span>
                         <span className='ml-auto inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-[#E53E3E] px-2 text-[11px] font-semibold text-white'>5</span>
                       </NavLink>
-                      <NavLink to='/contact' className={navLinkClasses}>
+                      <NavLink to='/contact' onClick={onClose} className={navLinkClasses}>
                         <i className="fas fa-envelope text-lg"></i>
                         <span className='text-[15px]'>Contact</span>
                       </NavLink>
