@@ -34,7 +34,7 @@ function Home() {
               Grace Cathedral · Abuja, Nigeria
             </p>
           </div>
-          <div className="flex items-center gap-2 flex-shrink-0">
+          <div className="flex items-center gap-2 shrink-0">
             <span className='text-[12px] sm:text-[14px] px-2.5 sm:px-3 py-1.5 bg-[#F5E8C0] text-[#5C1F0A] font-semibold rounded-full whitespace-nowrap flex items-center gap-2'>
               <i className="fa-solid fa-user-group text-[13px] sm:text-[15px]"></i>
               <span className="hidden sm:inline">1,240 Members</span>
@@ -42,7 +42,7 @@ function Home() {
             </span>
             <Link 
               to="/announcement" 
-              className='text-[#5C1F0A] bg-[#eedcb8] rounded-xl px-2.5 py-1.5 border border-[#D4C5A8] flex-shrink-0 hover:bg-[#e5d2aa] transition'
+              className='text-[#5C1F0A] bg-[#eedcb8] rounded-xl px-2.5 py-1.5 border border-[#D4C5A8] shrink-0 hover:bg-[#e5d2aa] transition'
             >
               <i className="fa-regular fa-bell text-[14px]"></i>
             </Link>
@@ -51,7 +51,7 @@ function Home() {
       </section>
 
       {/* ── Main Content ── */}
-      <main className='max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-9 pb-12 sm:pb-16'>
+      <main className='max-w-350 mx-auto px-4 sm:px-6 lg:px-9 pb-12 sm:pb-16'>
         
         {/* Hero Banner */}
         <div className='flex flex-col gap-3 bg-[linear-gradient(90deg,hsla(16,80%,22%,1)_0%,hsla(23,71%,35%,1)_100%)] w-full rounded-2xl sm:rounded-3xl lg:rounded-4xl mt-6 sm:mt-8 lg:mt-10 px-5 sm:px-8 lg:px-10 py-10 sm:py-12 lg:py-14'>
@@ -173,7 +173,7 @@ function Home() {
                           </span>
                         </div>
                       </div>
-                      <div className='flex flex-row sm:flex-col items-center sm:items-end gap-2 flex-shrink-0'>
+                      <div className='flex flex-row sm:flex-col items-center sm:items-end gap-2 shrink-0'>
                         <span 
                           className='rounded-full px-2.5 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-[11px] font-semibold text-white' 
                           style={{ backgroundColor: program.color }}
