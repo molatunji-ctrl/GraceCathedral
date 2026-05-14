@@ -13,10 +13,10 @@ function App() {
   return(
       <BrowserRouter>
         <React.Fragment>
-            <div className="main-container flex ml-70">
+            <div className="main-container flex">
               <Navbar isOpen={navOpen} onClose={() => setNavOpen(false)} />
 
-              {/* Dark overlay behind nav on mobile — tap it to close */}
+              {/* Dark overlay — tap to close nav on mobile */}
               {navOpen && (
                 <div
                   className="fixed inset-0 bg-black/50 z-30 md:hidden"
@@ -26,13 +26,13 @@ function App() {
 
               <div className="nav-bar-position overflow-y-auto bg-[#FAF6EE] min-h-screen w-full">
 
-                {/* Hamburger button — only visible on mobile */}
+                {/* Hamburger — mobile only, uses .hamburger-btn class from index.css */}
                 <button
-                  className="fixed top-4 left-4 z-50 md:hidden bg-[#5C1F0A] text-white w-10 h-10 rounded-xl flex items-center justify-center shadow-lg"
+                  className="hamburger-btn fixed top-3 left-3 z-50 md:hidden bg-[#5C1F0A] text-white rounded-xl flex items-center justify-center shadow-md"
                   onClick={() => setNavOpen(true)}
                   aria-label="Open navigation"
                 >
-                  <i className="fas fa-bars text-[16px]"></i>
+                  <i className="fas fa-bars text-[13px]"></i>
                 </button>
 
                 <Routes>
