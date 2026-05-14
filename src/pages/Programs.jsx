@@ -1,6 +1,13 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+function hexToRgba(hex, alpha) {
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}
+
 function Programs() {
   const [viewMode, setViewMode] = useState('weekly');
   const [selectedDay, setSelectedDay] = useState('All');
@@ -30,16 +37,12 @@ function Programs() {
 
   return (
     <>
-      {/* ── Header Bar ── */}
+      {/* Header */}
       <section className='bg-[#FEFCF6] border-b border-[#E8DFD0]'>
         <div className='flex justify-between items-center gap-3 px-4 sm:px-6 lg:px-9 py-3'>
           <div className="min-w-0">
-            <h2 className='text-[16px] sm:text-[18px] text-[#5C1F0A] font-semibold'>
-              Programs
-            </h2>
-            <p className='text-[10px] sm:text-[11px] text-[#9D8365] truncate'>
-              Grace Cathedral · Abuja, Nigeria
-            </p>
+            <h2 className='text-[16px] sm:text-[18px] text-[#5C1F0A] font-semibold'>Programs</h2>
+            <p className='text-[10px] sm:text-[11px] text-[#9D8365] truncate'>Grace Cathedral · Abuja, Nigeria</p>
           </div>
           <div className="flex items-center gap-2 shrink-0">
             <span className='text-[12px] sm:text-[14px] px-2.5 sm:px-3 py-1.5 bg-[#F5E8C0] text-[#5C1F0A] font-semibold rounded-full whitespace-nowrap flex items-center gap-2'>
@@ -47,68 +50,31 @@ function Programs() {
               <span className="hidden sm:inline">1,240 Members</span>
               <span className="sm:hidden">1,240</span>
             </span>
-            <Link 
-              to="/announcement" 
-              className='text-[#5C1F0A] bg-[#eedcb8] rounded-xl px-2.5 py-1.5 border border-[#D4C5A8] shrink-0 hover:bg-[#e5d2aa] transition'
-            >
+            <Link to="/announcement" className='text-[#5C1F0A] bg-[#eedcb8] rounded-xl px-2.5 py-1.5 border border-[#D4C5A8] shrink-0 hover:bg-[#e5d2aa] transition'>
               <i className="fa-regular fa-bell text-[14px]"></i>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ── Main Content ── */}
+      {/* Main */}
       <main className='max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-9 py-8 sm:py-10 lg:py-12'>
-        
-        {/* Page Title */}
         <div className='mb-6 sm:mb-8'>
-          <h2 className='text-[24px] sm:text-[28px] lg:text-[32px] text-[#5C1F0A] font-semibold leading-tight'>
-            Programs
-          </h2>
-          <p className='text-[13px] sm:text-[14px] text-[#8A7355] mt-1'>
-            Browse all church activities and services
-          </p>
+          <h2 className='text-[24px] sm:text-[28px] lg:text-[32px] text-[#5C1F0A] font-semibold leading-tight'>Programs</h2>
+          <p className='text-[13px] sm:text-[14px] text-[#8A7355] mt-1'>Browse all church activities and services</p>
         </div>
 
         {/* View Toggle */}
         <div className='flex gap-2 sm:gap-3 mb-6 sm:mb-7 flex-wrap'>
-          <button
-            onClick={() => setViewMode('weekly')}
-            className={`px-4 sm:px-6 py-2 rounded-full font-semibold text-[13px] sm:text-[14px] transition ${
-              viewMode === 'weekly'
-                ? 'bg-[#D4C5A8] text-[#5C1F0A] border border-[#D4C5A8]'
-                : 'bg-white text-[#8A7355] border border-[#D4C5A8]'
-            }`}
-          >
-            Weekly
-          </button>
-          <button
-            onClick={() => setViewMode('monthly')}
-            className={`px-4 sm:px-6 py-2 rounded-full font-semibold text-[13px] sm:text-[14px] transition ${
-              viewMode === 'monthly'
-                ? 'bg-[#5C1F0A] text-white border border-[#5C1F0A]'
-                : 'bg-white text-[#8A7355] border border-[#D4C5A8]'
-            }`}
-          >
-            Monthly
-          </button>
+          <button onClick={() => setViewMode('weekly')} className={`px-4 sm:px-6 py-2 rounded-full font-semibold text-[13px] sm:text-[14px] transition ${viewMode === 'weekly' ? 'bg-[#D4C5A8] text-[#5C1F0A] border border-[#D4C5A8]' : 'bg-white text-[#8A7355] border border-[#D4C5A8]'}`}>Weekly</button>
+          <button onClick={() => setViewMode('monthly')} className={`px-4 sm:px-6 py-2 rounded-full font-semibold text-[13px] sm:text-[14px] transition ${viewMode === 'monthly' ? 'bg-[#5C1F0A] text-white border border-[#5C1F0A]' : 'bg-white text-[#8A7355] border border-[#D4C5A8]'}`}>Monthly</button>
         </div>
 
         {/* Week Selector */}
         {viewMode === 'weekly' && (
           <div className='flex gap-2 sm:gap-3 mb-6 sm:mb-7 flex-wrap'>
             {weeks.map(week => (
-              <button
-                key={week}
-                onClick={() => setSelectedWeek(week)}
-                className={`px-3 sm:px-4 py-2 rounded-full font-semibold text-[12px] sm:text-[13px] transition ${
-                  selectedWeek === week
-                    ? 'bg-[#8B5425] text-white'
-                    : 'bg-white text-[#8A7355] border border-[#D4C5A8]'
-                }`}
-              >
-                Week {week}
-              </button>
+              <button key={week} onClick={() => setSelectedWeek(week)} className={`px-3 sm:px-4 py-2 rounded-full font-semibold text-[12px] sm:text-[13px] transition ${selectedWeek === week ? 'bg-[#8B5425] text-white' : 'bg-white text-[#8A7355] border border-[#D4C5A8]'}`}>Week {week}</button>
             ))}
           </div>
         )}
@@ -116,66 +82,36 @@ function Programs() {
         {/* Day Filter */}
         <div className='flex gap-2 sm:gap-3 mb-6 sm:mb-8 flex-wrap'>
           {days.map(day => (
-            <button
-              key={day}
-              onClick={() => setSelectedDay(day)}
-              className={`px-3 sm:px-4 py-2 rounded-full font-semibold text-[12px] sm:text-[13px] transition ${
-                selectedDay === day
-                  ? 'bg-[#B8743A] text-white'
-                  : 'bg-white text-[#8A7355] border border-[#D4C5A8]'
-              }`}
-            >
-              {day}
-            </button>
+            <button key={day} onClick={() => setSelectedDay(day)} className={`px-3 sm:px-4 py-2 rounded-full font-semibold text-[12px] sm:text-[13px] transition ${selectedDay === day ? 'bg-[#B8743A] text-white' : 'bg-white text-[#8A7355] border border-[#D4C5A8]'}`}>{day}</button>
           ))}
         </div>
 
-        {/* Count */}
-        <p className='text-[12px] sm:text-[13px] text-[#8A7355] mb-6 font-medium'>
-          {filteredPrograms.length} program{filteredPrograms.length !== 1 ? 's' : ''} found
-        </p>
+        <p className='text-[12px] sm:text-[13px] text-[#8A7355] mb-6 font-medium'>{filteredPrograms.length} program{filteredPrograms.length !== 1 ? 's' : ''} found</p>
 
-        {/* Program Cards */}
+        {/* Cards */}
         {filteredPrograms.length > 0 ? (
           <div className='grid gap-4 sm:gap-6 md:grid-cols-2'>
             {filteredPrograms.map(program => (
-              <div 
-                key={program.id} 
-                className='rounded-2xl sm:rounded-[28px] border border-[#E7D8C4] bg-white p-4 sm:p-6 hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition'
-              >
+              <div key={program.id} className='rounded-2xl sm:rounded-[28px] border border-[#E7D8C4] bg-white p-4 sm:p-6 hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition'>
                 <div className='flex items-start justify-between gap-3 mb-3 sm:mb-4'>
                   <div className='flex-1 min-w-0'>
-                    <h3 className='text-[14px] sm:text-[16px] font-semibold text-[#5C1F0A] leading-snug'>
-                      {program.name}
-                    </h3>
-                    <p className='text-[12px] sm:text-[13px] text-[#8A7355] mt-0.5'>
-                      {program.ministry}
-                    </p>
+                    <h3 className='text-[14px] sm:text-[16px] font-semibold text-[#5C1F0A] leading-snug'>{program.name}</h3>
+                    <p className='text-[12px] sm:text-[13px] text-[#8A7355] mt-0.5'>{program.ministry}</p>
                   </div>
-                  {/* PASTEL TAG — matches screenshot */}
+                  {/* PASTEL TAG */}
                   <span 
                     className='rounded-full px-2.5 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-[11px] font-semibold whitespace-nowrap shrink-0'
-                    style={{
-                      backgroundColor: program.color + '18',
-                      color: program.color
-                    }}
+                    style={{ backgroundColor: hexToRgba(program.color, 0.12), color: program.color }}
                   >
                     {program.tag}
                   </span>
                 </div>
                 <div className='flex flex-wrap gap-3 sm:gap-4 text-[11px] sm:text-[12px] text-[#8A7355]'>
-                  <span className='inline-flex items-center gap-1.5'>
-                    <i className='fa-regular fa-clock text-[10px]'></i>
-                    {program.time}
-                  </span>
-                  <span className='inline-flex items-center gap-1.5'>
-                    <i className='fa-solid fa-location-dot text-[10px]'></i>
-                    {program.location}
-                  </span>
+                  <span className='inline-flex items-center gap-1.5'><i className='fa-regular fa-clock text-[10px]'></i>{program.time}</span>
+                  <span className='inline-flex items-center gap-1.5'><i className='fa-solid fa-location-dot text-[10px]'></i>{program.location}</span>
                 </div>
                 <span className='inline-flex items-center gap-1.5 rounded-full bg-[#EDF8EE] px-2.5 py-1 text-[10px] sm:text-[11px] font-semibold text-[#5BC0A3] mt-3 sm:mt-4'>
-                  <i className='fa-solid fa-check text-[9px]'></i>
-                  Upcoming
+                  <i className='fa-solid fa-check text-[9px]'></i>Upcoming
                 </span>
               </div>
             ))}
@@ -183,9 +119,7 @@ function Programs() {
         ) : (
           <div className='flex flex-col items-center justify-center py-16 sm:py-24'>
             <i className='fa-regular fa-calendar text-[48px] sm:text-[60px] text-[#D4C5A8] mb-4'></i>
-            <p className='text-[14px] sm:text-[16px] text-[#8A7355] font-medium'>
-              No programs for this selection.
-            </p>
+            <p className='text-[14px] sm:text-[16px] text-[#8A7355] font-medium'>No programs for this selection.</p>
           </div>
         )}
       </main>
