@@ -110,7 +110,7 @@ function Home() {
                     onClick={() => navigate(`/programs`)} 
                     className='w-full text-left group rounded-2xl sm:rounded-[28px] border border-[#D4C5A8] bg-white p-4 sm:p-5 transition hover:shadow-[0_14px_40px_rgba(0,0,0,0.05)]'
                   >
-                    <div className='flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3'>
+                    <div className='flex flex-col bg-white sm:flex-row sm:items-start sm:justify-between gap-3'>
                       <div className='flex-1 min-w-0'>
                         <h3 className='text-[14px] sm:text-[16px] font-semibold text-[#5C1F0A] leading-snug'>{program.name}</h3>
                         <p className='text-[11px] sm:text-[12px] text-[#8A7355] mt-0.5'>{program.ministry}</p>
@@ -119,7 +119,7 @@ function Home() {
                           <span className='inline-flex items-center gap-1.5'><i className='fa-solid fa-location-dot text-[10px]'></i>{program.location}</span>
                         </div>
                       </div>
-                      <div className='flex flex-row sm:flex-col bg-white items-center sm:items-end gap-2 shrink-0'>
+                      <div className='flex flex-row sm:flex-col  items-center sm:items-end gap-2 shrink-0'>
                         {/* PASTEL TAG — uses hexToRgba for reliable pastel background */}
                         <span 
                           className='rounded-full px-2.5 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-[11px] font-semibold whitespace-nowrap'
