@@ -70,7 +70,7 @@ function Programs() {
         </div>
 
         {/* ── Weekly / Monthly toggle ── */}
-        <div className='flex gap-2 mb-6 flex-wrap bg-amber-500/10 p-4 rounded-xl'>
+        <div className='flex gap-2 mb-6 flex-wrap bg'>
           <button
             onClick={() => setViewMode('weekly')}
             className={`px-5 py-2 rounded-full font-semibold text-[13px] border transition ${
