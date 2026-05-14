@@ -1,5 +1,5 @@
-import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+
 
 function Home() {
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ function Home() {
   ];
 
   return (
-    <React.Fragment>
+    <>
       {/* ── Top Header Bar ── */}
       <section className='bg-[#FEFCF6] border-b border-[#E8DFD0]'>
         <div className='flex justify-between items-center gap-3 px-4 sm:px-6 lg:px-9 py-3'>
@@ -51,33 +51,42 @@ function Home() {
       </section>
 
       {/* ── Main Content ── */}
-      <main className='max-w-350 mx-auto px-4 sm:px-6 lg:px-9 pb-12 sm:pb-16'>
+      <main className='max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-9 pb-12 sm:pb-16'>
         
-        {/* Hero Banner */}
-        <div className='flex flex-col gap-3 bg-[linear-gradient(90deg,hsla(16,80%,22%,1)_0%,hsla(23,71%,35%,1)_100%)] w-full rounded-2xl sm:rounded-3xl lg:rounded-4xl mt-6 sm:mt-8 lg:mt-10 px-5 sm:px-8 lg:px-10 py-10 sm:py-12 lg:py-14'>
-          <h3 className='text-[11px] sm:text-[12px] font-semibold text-[#AD7C14] tracking-wide'>
-            WELCOME, BELOVED
-          </h3>
-          <p className='text-[24px] sm:text-[32px] lg:text-[40px] text-white font-medium leading-tight'>
-            "One Fold, One Shepherd."
-          </p>
-          <p className='text-[10px] sm:text-[11px] font-semibold italic text-[#AA8565]'>
-            John 10:16 • Theme of the Month
-          </p>
+        {/* Hero Banner — Image Background + Brown Overlay */}
+        <div 
+          className='relative w-full rounded-2xl sm:rounded-3xl lg:rounded-4xl mt-6 sm:mt-8 lg:mt-10 overflow-hidden bg-cover bg-center'
+          style={{ backgroundImage: "url('/dashboard.jpg')" }}
+        >
+          {/* Dark brown overlay — this is the "filter" on top of the image */}
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(60,18,6,0.88)_0%,rgba(100,40,15,0.82)_100%)]" />
           
-          <div className='flex flex-wrap gap-3 pt-4 sm:pt-5'>
-            <Link 
-              to='/programs' 
-              className='text-white text-[13px] sm:text-[14px] font-semibold border border-[#9F7261] bg-[#783B25] rounded-xl px-4 py-2.5 hover:bg-[#6b331f] transition text-center'
-            >
-              View Programs
-            </Link>
-            <Link 
-              to='/announcement' 
-              className='text-[#5C1F0C] text-[13px] sm:text-[14px] font-semibold border border-[#5C1F0C] bg-[#D4A017] rounded-xl px-4 py-2.5 hover:bg-[#c29415] transition text-center'
-            >
-              Announcements
-            </Link>
+          {/* Content sits on top of the overlay */}
+          <div className='relative z-10 flex flex-col gap-3 px-5 sm:px-8 lg:px-10 py-10 sm:py-12 lg:py-14'>
+            <h3 className='text-[11px] sm:text-[12px] font-semibold text-[#D4A017] tracking-wide'>
+              WELCOME, BELOVED
+            </h3>
+            <p className='text-[24px] sm:text-[32px] lg:text-[40px] text-white font-medium leading-tight'>
+              "One Fold, One Shepherd."
+            </p>
+            <p className='text-[10px] sm:text-[11px] font-semibold italic text-[#C4A882]'>
+              John 10:16 • Theme of the Month
+            </p>
+            
+            <div className='flex flex-wrap gap-3 pt-4 sm:pt-5'>
+              <Link 
+                to='/programs' 
+                className='text-white text-[13px] sm:text-[14px] font-semibold border border-[#9F7261] bg-[#783B25] rounded-xl px-4 py-2.5 hover:bg-[#6b331f] transition text-center'
+              >
+                View Programs
+              </Link>
+              <Link 
+                to='/announcement' 
+                className='text-[#5C1F0C] text-[13px] sm:text-[14px] font-semibold border border-[#5C1F0C] bg-[#D4A017] rounded-xl px-4 py-2.5 hover:bg-[#c29415] transition text-center'
+              >
+                Announcements
+              </Link>
+            </div>
           </div>
         </div>
 
@@ -208,7 +217,7 @@ function Home() {
           </div>
         </section>
       </main>
-    </React.Fragment>
+    </>
   )
 }
 
