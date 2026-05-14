@@ -14,7 +14,7 @@ function Contact() {
               Grace Cathedral · Abuja, Nigeria
             </p>
           </div>
-          <div className="flex items-center gap-2 flex-shrink-0">
+          <div className="flex items-center gap-2 shrink-0">
             <span className='text-[12px] sm:text-[14px] px-2.5 sm:px-3 py-1.5 bg-[#F5E8C0] text-[#5C1F0A] font-semibold rounded-full whitespace-nowrap flex items-center gap-2'>
               <i className="fa-solid fa-user-group text-[13px] sm:text-[15px]"></i>
               <span className="hidden sm:inline">1,240 Members</span>
@@ -22,7 +22,7 @@ function Contact() {
             </span>
             <Link 
               to="/announcement" 
-              className='text-[#5C1F0A] bg-[#eedcb8] rounded-xl px-2.5 py-1.5 border border-[#D4C5A8] flex-shrink-0 hover:bg-[#e5d2aa] transition'
+              className='text-[#5C1F0A] bg-[#eedcb8] rounded-xl px-2.5 py-1.5 border border-[#D4C5A8] shrink-0 hover:bg-[#e5d2aa] transition'
             >
               <i className="fa-regular fa-bell text-[14px]"></i>
             </Link>
@@ -31,7 +31,7 @@ function Contact() {
       </section>
 
       {/* ── Main Content ── */}
-      <main className='max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-9 py-8 sm:py-12 lg:py-16'>
+      <main className='max-w-350 mx-auto px-4 sm:px-6 lg:px-9 py-8 sm:py-12 lg:py-16'>
         
         {/* Heading */}
         <div className="mb-6 sm:mb-8">
@@ -103,7 +103,7 @@ function Contact() {
                   <span className='text-[13px] sm:text-[14px] text-[#8B3A14] font-semibold'>Wednesday</span>
                   <span className='text-[13px] sm:text-[14px] text-[#8A7355] text-right'>Bible Study – 6:00 PM</span>
                 </div>
-                <div className="flex justify-between items-center gap-2">
+                <div className="flex justify-between items-center gap-2 shrink-0">
                   <span className='text-[13px] sm:text-[14px] text-[#8B3A14] font-semibold'>Friday</span>
                   <span className='text-[13px] sm:text-[14px] text-[#8A7355] text-right'>Youth Service – 5:00 PM</span>
                 </div>
@@ -112,7 +112,7 @@ function Contact() {
           </div>
 
           {/* Right: Contact Form */}
-          <div className="flex flex-col gap-4 border border-[#D4C5A8] px-4 sm:px-6 py-5 rounded-2xl bg-white shadow-sm w-full lg:w-96 xl:w-[420px] flex-shrink-0">
+          <div className="flex flex-col gap-4 border border-[#D4C5A8] px-4 sm:px-6 py-5 rounded-2xl bg-white shadow-sm w-full lg:w-96 xl:w-105 shrink-0">
             <h3 className='text-[13px] sm:text-[14px] text-[#5C1F0A] font-semibold'>
               SEND A MESSAGE
             </h3>
