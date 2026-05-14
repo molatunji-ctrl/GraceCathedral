@@ -1,9 +1,21 @@
 import { Link, useNavigate } from 'react-router-dom';
 
-// Convert hex color to rgba with opacity — reliable across all browsers
- const tab = {
-     backgroundColor: '#FEFCF6',
- }
+// Helper: returns Tailwind class string for each tag — compiled at build time
+function getTagStyle(tag) {
+  const styles = {
+    'Worship': 'bg-[#EDE9F6] text-[#8B7BC9]',
+    'Study': 'bg-[#E8F0F8] text-[#5B9BD5]',
+    'Youth': 'bg-[#FDF0E0] text-[#F4A460]',
+    'Men': 'bg-[#F5EDE3] text-[#D4A574]',
+    'Children': 'bg-[#E8F5F0] text-[#5BC0A3]',
+    'Prayer': 'bg-[#F5EDE0] text-[#C89968]',
+    'Music': 'bg-[#EDEAF5] text-[#9B8FC9]',
+    'Women': 'bg-[#FCE8F0] text-[#E85D99]',
+    'Discipleship': 'bg-[#E8F0F8] text-[#5B9BD5]',
+    'Outreach': 'bg-[#FDF0E0] text-[#F5A26B]',
+  };
+  return styles[tag] || 'bg-gray-100 text-gray-600';
+}
 
 function Home() {
   const navigate = useNavigate();
@@ -18,16 +30,16 @@ function Home() {
   ];
 
   const upcomingPrograms = [
-    { id: 1, name: 'Sunday Worship Service', ministry: 'Main Congregation', time: 'Sunday · 8:00 AM', location: 'Main Auditorium', tag: 'Worship', color: '#8B7BC9' },
-    { id: 2, name: 'Bible Study & Fellowship', ministry: 'Adult Ministry', time: 'Wednesday · 6:00 PM', location: 'Hall B', tag: 'Study', color: '#5B9BD5' },
-    { id: 3, name: 'Youth Ignite Service', ministry: 'Youth Ministry', time: 'Friday · 5:00 PM', location: 'Youth Hall', tag: 'Youth', color: '#F4A460' },
-    { id: 4, name: "Men's Leadership Breakfast", ministry: "Men's Ministry", time: 'Saturday · 7:00 AM', location: 'Cafeteria', tag: 'Men', color: '#D4A574' },
-    { id: 5, name: "Children's Church", ministry: "Children's Ministry", time: 'Sunday · 9:00 AM', location: "Children's Wing", tag: 'Children', color: '#5BC0A3' },
+    { id: 1, name: 'Sunday Worship Service', ministry: 'Main Congregation', time: 'Sunday · 8:00 AM', location: 'Main Auditorium', tag: 'Worship' },
+    { id: 2, name: 'Bible Study & Fellowship', ministry: 'Adult Ministry', time: 'Wednesday · 6:00 PM', location: 'Hall B', tag: 'Study' },
+    { id: 3, name: 'Youth Ignite Service', ministry: 'Youth Ministry', time: 'Friday · 5:00 PM', location: 'Youth Hall', tag: 'Youth' },
+    { id: 4, name: "Men's Leadership Breakfast", ministry: "Men's Ministry", time: 'Saturday · 7:00 AM', location: 'Cafeteria', tag: 'Men' },
+    { id: 5, name: "Children's Church", ministry: "Children's Ministry", time: 'Sunday · 9:00 AM', location: "Children's Wing", tag: 'Children' },
   ];
 
   return (
     <>
-      {/* ── Top Header Bar ── */}
+      {/* Header */}
       <section className='bg-[#FEFCF6] border-b border-[#E8DFD0]'>
         <div className='flex justify-between items-center gap-3 px-4 sm:px-6 lg:px-9 py-3'>
           <div className="min-w-0">
@@ -47,15 +59,11 @@ function Home() {
         </div>
       </section>
 
-      {/* ── Main Content ── */}
       <main className='max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-9 pb-12 sm:pb-16'>
         
-        {/* Hero Banner */}
-        <div 
-          className='relative w-full rounded-2xl sm:rounded-3xl lg:rounded-4xl mt-6 sm:mt-8 lg:mt-10 overflow-hidden bg-cover bg-center'
-          style={{ backgroundImage: "url('/dashboard.jpg')" }}
-        >
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(60,18,6,0.65)_0%,rgba(100,40,15,0.60)_100%)]" />
+        {/* Hero */}
+        <div className='relative w-full rounded-2xl sm:rounded-3xl lg:rounded-4xl mt-6 sm:mt-8 lg:mt-10 overflow-hidden bg-cover bg-center' style={{ backgroundImage: "url('/dashboard.jpg')" }}>
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(60,18,6,0.75)_0%,rgba(100,40,15,0.70)_100%)]" />
           <div className='relative z-10 flex flex-col gap-3 px-5 sm:px-8 lg:px-10 py-10 sm:py-12 lg:py-14'>
             <h3 className='text-[11px] sm:text-[12px] font-semibold text-[#D4A017] tracking-wide'>WELCOME, BELOVED</h3>
             <p className='text-[24px] sm:text-[32px] lg:text-[40px] text-white font-medium leading-tight'>"One Fold, One Shepherd."</p>
@@ -67,7 +75,7 @@ function Home() {
           </div>
         </div>
 
-        {/* Stats Grid */}
+        {/* Stats */}
         <section className='mt-8 sm:mt-10 lg:mt-12'>
           <div className='flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 lg:gap-8'>
             {[ { num: '1,240', label: 'MEMBERS' }, { num: '10', label: 'PROGRAMS' }, { num: '6', label: 'DEPARTMENTS' }, { num: '7', label: 'UPCOMING' } ].map((stat) => (
@@ -83,7 +91,6 @@ function Home() {
         <section className='mt-12 sm:mt-16 lg:mt-20'>
           <div className='flex flex-col lg:flex-row gap-8 lg:gap-10 xl:gap-12'>
             
-            {/* Departments */}
             <div className='flex-1 flex flex-col gap-4 sm:gap-5 min-w-0'>
               <h2 className='text-[16px] sm:text-[18px] text-[#5C1F0A] font-semibold'>Departments</h2>
               <div className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5'>
@@ -97,7 +104,6 @@ function Home() {
               </div>
             </div>
 
-            {/* Upcoming Programs */}
             <div className='flex-1 flex flex-col gap-4 sm:gap-5 min-w-0'>
               <div className='flex items-center justify-between'>
                 <h2 className='text-[16px] sm:text-[18px] font-semibold text-[#5C1F0A]'>Upcoming Programs</h2>
@@ -105,11 +111,7 @@ function Home() {
               </div>
               <div className='space-y-3'>
                 {upcomingPrograms.map((program) => (
-                  <button 
-                    key={program.id} 
-                    onClick={() => navigate(`/programs`)} 
-                    className='w-full text-left group rounded-2xl sm:rounded-[28px] border border-[#D4C5A8] bg-[#FEFCF6] p-4 sm:p-5 transition hover:shadow-[0_14px_40px_rgba(0,0,0,0.05)]'
-                  >
+                  <button key={program.id} onClick={() => navigate(`/programs`)} className='w-full text-left group rounded-2xl sm:rounded-[28px] border border-[#D4C5A8] bg-white p-4 sm:p-5 transition hover:shadow-[0_14px_40px_rgba(0,0,0,0.05)]'>
                     <div className='flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3'>
                       <div className='flex-1 min-w-0'>
                         <h3 className='text-[14px] sm:text-[16px] font-semibold text-[#5C1F0A] leading-snug'>{program.name}</h3>
@@ -119,12 +121,9 @@ function Home() {
                           <span className='inline-flex items-center gap-1.5'><i className='fa-solid fa-location-dot text-[10px]'></i>{program.location}</span>
                         </div>
                       </div>
-                      <div className='flex flex-row sm:flex-col  items-center sm:items-end gap-2 shrink-0'>
-                        {/* PASTEL TAG — uses hexToRgba for reliable pastel background */}
-                        <span 
-                          className='rounded-full px-2.5 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-[11px] font-semibold whitespace-nowrap'
-                          style={{ backgroundColor: tab.backgroundColor, color: program.color }}
-                        >
+                      <div className='flex flex-row sm:flex-col items-center sm:items-end gap-2 shrink-0'>
+                        {/* TAILWIND CLASSES ONLY — same as Announcements page */}
+                        <span className={`rounded-full px-2.5 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-[11px] font-semibold whitespace-nowrap ${getTagStyle(program.tag)}`}>
                           {program.tag}
                         </span>
                         <span className='inline-flex items-center gap-1.5 rounded-full bg-[#EDF8EE] px-2.5 py-1 text-[10px] sm:text-[11px] font-semibold text-[#5BC0A3]'>
