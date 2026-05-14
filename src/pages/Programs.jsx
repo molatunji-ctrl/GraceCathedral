@@ -1,11 +1,20 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-function hexToRgba(hex, alpha) {
-  const r = parseInt(hex.slice(1, 3), 16);
-  const g = parseInt(hex.slice(3, 5), 16);
-  const b = parseInt(hex.slice(5, 7), 16);
-  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+function getTagStyle(tag) {
+  const styles = {
+    'Worship': 'bg-[#EDE9F6] text-[#8B7BC9]',
+    'Study': 'bg-[#E8F0F8] text-[#5B9BD5]',
+    'Youth': 'bg-[#FDF0E0] text-[#F4A460]',
+    'Men': 'bg-[#F5EDE3] text-[#D4A574]',
+    'Children': 'bg-[#E8F5F0] text-[#5BC0A3]',
+    'Prayer': 'bg-[#F5EDE0] text-[#C89968]',
+    'Music': 'bg-[#EDEAF5] text-[#9B8FC9]',
+    'Women': 'bg-[#FCE8F0] text-[#E85D99]',
+    'Discipleship': 'bg-[#E8F0F8] text-[#5B9BD5]',
+    'Outreach': 'bg-[#FDF0E0] text-[#F5A26B]',
+  };
+  return styles[tag] || 'bg-gray-100 text-gray-600';
 }
 
 function Programs() {
@@ -14,16 +23,16 @@ function Programs() {
   const [selectedWeek, setSelectedWeek] = useState(1);
 
   const allPrograms = [
-    { id: 1, name: 'Sunday Worship Service', ministry: 'Main Congregation', time: 'Sunday · 8:00 AM', location: 'Main Auditorium', tag: 'Worship', color: '#8B7BC9', day: 'Sunday', week: 1 },
-    { id: 2, name: 'Bible Study & Fellowship', ministry: 'Adult Ministry', time: 'Wednesday · 6:00 PM', location: 'Hall B', tag: 'Study', color: '#5B9BD5', day: 'Wednesday', week: 1 },
-    { id: 3, name: 'Youth Ignite Service', ministry: 'Youth Ministry', time: 'Friday · 5:00 PM', location: 'Youth Hall', tag: 'Youth', color: '#F4A460', day: 'Friday', week: 1 },
-    { id: 4, name: "Men's Leadership Breakfast", ministry: "Men's Ministry", time: 'Saturday · 7:00 AM', location: 'Cafeteria', tag: 'Men', color: '#D4A574', day: 'Saturday', week: 1 },
-    { id: 5, name: "Children's Church", ministry: "Children's Ministry", time: 'Sunday · 9:00 AM', location: "Children's Wing", tag: 'Children', color: '#5BC0A3', day: 'Sunday', week: 1 },
-    { id: 6, name: 'Prayer & Intercession', ministry: 'Prayer Ministry', time: 'Tuesday · 5:30 AM', location: 'Prayer Room', tag: 'Prayer', color: '#C89968', day: 'Tuesday', week: 1 },
-    { id: 7, name: 'Choir Rehearsal', ministry: 'Music Ministry', time: 'Thursday · 4:00 PM', location: 'Sanctuary', tag: 'Music', color: '#9B8FC9', day: 'Thursday', week: 1 },
-    { id: 8, name: 'Women of Virtue Meeting', ministry: "Women's Ministry", time: 'Saturday · 10:00 AM', location: 'Conference Room', tag: 'Women', color: '#E85D99', day: 'Saturday', week: 2 },
-    { id: 9, name: 'New Members Orientation', ministry: 'Admin', time: 'Sunday · 11:00 AM', location: 'Meeting Room 1', tag: 'Discipleship', color: '#5B9BD5', day: 'Sunday', week: 2 },
-    { id: 10, name: 'Evangelism Outreach', ministry: 'Evangelism Dept.', time: 'Saturday · 8:00 AM', location: 'Community Square', tag: 'Outreach', color: '#F5A26B', day: 'Saturday', week: 2 },
+    { id: 1, name: 'Sunday Worship Service', ministry: 'Main Congregation', time: 'Sunday · 8:00 AM', location: 'Main Auditorium', tag: 'Worship', day: 'Sunday', week: 1 },
+    { id: 2, name: 'Bible Study & Fellowship', ministry: 'Adult Ministry', time: 'Wednesday · 6:00 PM', location: 'Hall B', tag: 'Study', day: 'Wednesday', week: 1 },
+    { id: 3, name: 'Youth Ignite Service', ministry: 'Youth Ministry', time: 'Friday · 5:00 PM', location: 'Youth Hall', tag: 'Youth', day: 'Friday', week: 1 },
+    { id: 4, name: "Men's Leadership Breakfast", ministry: "Men's Ministry", time: 'Saturday · 7:00 AM', location: 'Cafeteria', tag: 'Men', day: 'Saturday', week: 1 },
+    { id: 5, name: "Children's Church", ministry: "Children's Ministry", time: 'Sunday · 9:00 AM', location: "Children's Wing", tag: 'Children', day: 'Sunday', week: 1 },
+    { id: 6, name: 'Prayer & Intercession', ministry: 'Prayer Ministry', time: 'Tuesday · 5:30 AM', location: 'Prayer Room', tag: 'Prayer', day: 'Tuesday', week: 1 },
+    { id: 7, name: 'Choir Rehearsal', ministry: 'Music Ministry', time: 'Thursday · 4:00 PM', location: 'Sanctuary', tag: 'Music', day: 'Thursday', week: 1 },
+    { id: 8, name: 'Women of Virtue Meeting', ministry: "Women's Ministry", time: 'Saturday · 10:00 AM', location: 'Conference Room', tag: 'Women', day: 'Saturday', week: 2 },
+    { id: 9, name: 'New Members Orientation', ministry: 'Admin', time: 'Sunday · 11:00 AM', location: 'Meeting Room 1', tag: 'Discipleship', day: 'Sunday', week: 2 },
+    { id: 10, name: 'Evangelism Outreach', ministry: 'Evangelism Dept.', time: 'Saturday · 8:00 AM', location: 'Community Square', tag: 'Outreach', day: 'Saturday', week: 2 },
   ];
 
   const days = ['All', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -37,7 +46,6 @@ function Programs() {
 
   return (
     <>
-      {/* Header */}
       <section className='bg-[#FEFCF6] border-b border-[#E8DFD0]'>
         <div className='flex justify-between items-center gap-3 px-4 sm:px-6 lg:px-9 py-3'>
           <div className="min-w-0">
@@ -57,20 +65,17 @@ function Programs() {
         </div>
       </section>
 
-      {/* Main */}
       <main className='max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-9 py-8 sm:py-10 lg:py-12'>
         <div className='mb-6 sm:mb-8'>
           <h2 className='text-[24px] sm:text-[28px] lg:text-[32px] text-[#5C1F0A] font-semibold leading-tight'>Programs</h2>
           <p className='text-[13px] sm:text-[14px] text-[#8A7355] mt-1'>Browse all church activities and services</p>
         </div>
 
-        {/* View Toggle */}
         <div className='flex gap-2 sm:gap-3 mb-6 sm:mb-7 flex-wrap'>
           <button onClick={() => setViewMode('weekly')} className={`px-4 sm:px-6 py-2 rounded-full font-semibold text-[13px] sm:text-[14px] transition ${viewMode === 'weekly' ? 'bg-[#D4C5A8] text-[#5C1F0A] border border-[#D4C5A8]' : 'bg-white text-[#8A7355] border border-[#D4C5A8]'}`}>Weekly</button>
           <button onClick={() => setViewMode('monthly')} className={`px-4 sm:px-6 py-2 rounded-full font-semibold text-[13px] sm:text-[14px] transition ${viewMode === 'monthly' ? 'bg-[#5C1F0A] text-white border border-[#5C1F0A]' : 'bg-white text-[#8A7355] border border-[#D4C5A8]'}`}>Monthly</button>
         </div>
 
-        {/* Week Selector */}
         {viewMode === 'weekly' && (
           <div className='flex gap-2 sm:gap-3 mb-6 sm:mb-7 flex-wrap'>
             {weeks.map(week => (
@@ -79,7 +84,6 @@ function Programs() {
           </div>
         )}
 
-        {/* Day Filter */}
         <div className='flex gap-2 sm:gap-3 mb-6 sm:mb-8 flex-wrap'>
           {days.map(day => (
             <button key={day} onClick={() => setSelectedDay(day)} className={`px-3 sm:px-4 py-2 rounded-full font-semibold text-[12px] sm:text-[13px] transition ${selectedDay === day ? 'bg-[#B8743A] text-white' : 'bg-white text-[#8A7355] border border-[#D4C5A8]'}`}>{day}</button>
@@ -88,7 +92,6 @@ function Programs() {
 
         <p className='text-[12px] sm:text-[13px] text-[#8A7355] mb-6 font-medium'>{filteredPrograms.length} program{filteredPrograms.length !== 1 ? 's' : ''} found</p>
 
-        {/* Cards */}
         {filteredPrograms.length > 0 ? (
           <div className='grid gap-4 sm:gap-6 md:grid-cols-2'>
             {filteredPrograms.map(program => (
@@ -98,11 +101,8 @@ function Programs() {
                     <h3 className='text-[14px] sm:text-[16px] font-semibold text-[#5C1F0A] leading-snug'>{program.name}</h3>
                     <p className='text-[12px] sm:text-[13px] text-[#8A7355] mt-0.5'>{program.ministry}</p>
                   </div>
-                  {/* PASTEL TAG */}
-                  <span 
-                    className='rounded-full px-2.5 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-[11px] font-semibold whitespace-nowrap shrink-0'
-                    style={{ backgroundColor: hexToRgba(program.color, 0.12), color: program.color }}
-                  >
+                  {/* TAILWIND CLASSES ONLY — same pattern as Announcements */}
+                  <span className={`rounded-full px-2.5 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-[11px] font-semibold whitespace-nowrap shrink-0 ${getTagStyle(program.tag)}`}>
                     {program.tag}
                   </span>
                 </div>
