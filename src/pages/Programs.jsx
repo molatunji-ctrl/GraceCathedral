@@ -61,7 +61,7 @@ function Programs() {
         </div>
       </section>
 
-      <main className='max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-9 py-8 lg:py-12'>
+      <main className='max-w-350 mx-auto px-4 sm:px-6 lg:px-9 py-8 lg:py-12'>
 
         {/* Title */}
         <div className='mb-7'>
@@ -70,7 +70,7 @@ function Programs() {
         </div>
 
         {/* ── Weekly / Monthly toggle ── */}
-        <div className='flex gap-2 mb-6 flex-wrap bg'>
+        <div className='flex gap-2 mb-6 flex-wrap bg-amber-700/5 p-3 rounded-lg'>
           <button
             onClick={() => setViewMode('weekly')}
             className={`px-5 py-2 rounded-full font-semibold text-[13px] border transition ${
