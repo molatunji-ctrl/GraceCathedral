@@ -59,7 +59,7 @@ function Home() {
           style={{ backgroundImage: "url('/dashboard.jpg')" }}
         >
           {/* Dark brown overlay — this is the "filter" on top of the image */}
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(60,18,6,0.88)_0%,rgba(100,40,15,0.82)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(60,18,6,0.65)_0%,rgba(100,40,15,0.60)_100%)]" />
           
           {/* Content sits on top of the overlay */}
           <div className='relative z-10 flex flex-col gap-3 px-5 sm:px-8 lg:px-10 py-10 sm:py-12 lg:py-14'>
