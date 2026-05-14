@@ -119,7 +119,7 @@ function Home() {
                           <span className='inline-flex items-center gap-1.5'><i className='fa-solid fa-location-dot text-[10px]'></i>{program.location}</span>
                         </div>
                       </div>
-                      <div className='flex flex-row sm:flex-col items-center sm:items-end gap-2 shrink-0'>
+                      <div className='flex flex-row sm:flex-col bg-white items-center sm:items-end gap-2 shrink-0'>
                         {/* PASTEL TAG — uses hexToRgba for reliable pastel background */}
                         <span 
                           className='rounded-full px-2.5 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-[11px] font-semibold whitespace-nowrap'
