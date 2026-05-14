@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-// ============================================================
-// PROGRAMS PAGE COMPONENT
-// ============================================================
+
 // This component displays church programs with filtering options
 // Users can filter by: Weekly/Monthly view, Day of week, and Week number
-// ============================================================
 
 function Programs() {
     // STATE VARIABLES (useState stores data that can change)
@@ -41,9 +38,8 @@ function Programs() {
     const days = ['All', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const weeks = [1, 2, 3, 4];
 
-    // ============================================================
+
     // FILTER LOGIC
-    // ============================================================
     // This function filters programs based on:
     // 1. Selected day (or shows all if 'All' is selected)
     // 2. Selected week (only in weekly view mode)
@@ -63,9 +59,8 @@ function Programs() {
 
     return(
         <React.Fragment>
-            {/* ============================================================ */}
             {/* HEADER SECTION - Shows page title and church info */}
-            {/* ============================================================ */}
+            
            <section className='bg-[#FEFCF6]'>
               <div className='flex justify-between gap-7 px-9 py-3 items-center'>
                 <div className="header-left">
@@ -87,10 +82,9 @@ function Programs() {
                     <p className='text-[14px] text-[#8A7355] mt-1'>Browse all church activities and services</p>
                 </div>
 
-                {/* ============================================================ */}
+
                 {/* WEEKLY/MONTHLY VIEW TOGGLE BUTTONS */}
-                {/* User can click these to switch between weekly and monthly view */}
-                {/* ============================================================ */}
+                {/* User can click these to switch between weekly and monthly view */}           
                 <div className='flex gap-3 mb-7 flex-wrap'>
                     {/* WEEKLY BUTTON - Shows only programs for selected week */}
                     <button
@@ -117,10 +111,9 @@ function Programs() {
                     </button>
                 </div>
 
-                {/* ============================================================ */}
+
                 {/* WEEK SELECTION BUTTONS (Only shows in Weekly mode) */}
                 {/* User selects which week to view programs for */}
-                {/* ============================================================ */}
                 {viewMode === 'weekly' && (
                     <div className='flex gap-3 mb-7 flex-wrap'>
                         {/* Loop through weeks array and create a button for each week */}
