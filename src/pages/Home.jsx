@@ -1,12 +1,9 @@
 import { Link, useNavigate } from 'react-router-dom';
 
 // Convert hex color to rgba with opacity — reliable across all browsers
-function hexToRgba(hex, alpha) {
-  const r = parseInt(hex.slice(1, 3), 16);
-  const g = parseInt(hex.slice(3, 5), 16);
-  const b = parseInt(hex.slice(5, 7), 16);
-  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-}
+ const tab = {
+     backgroundColor: '#FEFCF6',
+ }
 
 function Home() {
   const navigate = useNavigate();
@@ -126,7 +123,7 @@ function Home() {
                         {/* PASTEL TAG — uses hexToRgba for reliable pastel background */}
                         <span 
                           className='rounded-full px-2.5 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-[11px] font-semibold whitespace-nowrap'
-                          style={{ backgroundColor: hexToRgba(program.color, 0.12), color: program.color }}
+                          style={{ backgroundColor: tab.backgroundColor, color: program.color }}
                         >
                           {program.tag}
                         </span>
