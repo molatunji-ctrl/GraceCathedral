@@ -1,214 +1,63 @@
 @import "tailwindcss";
 
-/* Base Styles */
-* {
+/* ─── Base Reset ──────────────────────────────────────────── */
+*, *::before, *::after {
     box-sizing: border-box;
-    max-width: 100%;
 }
 
 body {
     margin: 0;
     padding: 0;
-    font-family: inherit;
 }
 
-/* RESPONSIVE DESIGN BREAKPOINTS */
-/* Mobile: 320px - 480px */
-/* Tablet: 481px - 768px */
-/* Laptop: 769px - 1024px */
-/* Large Screen: 1025px and above */
-
-/* MOBILE STYLES (320px - 480px) */
-@media (max-width: 480px) {
-    .main-container {
-        flex-direction: column;
-        margin-left: 0 !important;
-    }
-
-    .nav-bar-position {
-        margin-top: 0;
-        padding: 10px;
-    }
-
-    .main section {
-        padding: 12px !important;
-    }
-
-    h1, h2, h3 {
-        font-size: 18px;
-    }
-
-    h4, h5, h6 {
-        font-size: 14px;
-    }
-
-    p {
-        font-size: 12px;
-    }
-
-    .gap-10 {
-        gap: 8px !important;
-    }
-
-    button {
-        width: 100%;
-    }
+/* ─── Hamburger button — always small, never stretched ──────── */
+.hamburger-btn {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    padding: 0 !important;
+    flex-shrink: 0 !important;
 }
 
-/* TABLET STYLES (481px - 768px) */
-@media (min-width: 481px) and (max-width: 768px) {
-    .main-container {
-        flex-direction: column;
-        margin-left: 0 !important;
-    }
-
-    .main section {
-        padding: 16px !important;
-    }
-
-    h1, h2, h3 {
-        font-size: 22px;
-    }
-
-    .grid {
-        grid-template-columns: 1fr !important;
-    }
+/* ─── Filter/toggle buttons — should NOT stretch full width ── */
+.view-toggle,
+.week-btn,
+.day-btn,
+.program-card {
+    width: auto !important;
 }
 
-/* Hide sidebar on mobile/tablet using transform — NOT display:none,
-   so the Tailwind transition classes can animate the slide-in. */
+/* Only stretch form submit button */
+.send-btn {
+    width: 100% !important;
+}
+
+/* ─── Sidebar (desktop) ──────────────────────────────────── */
+
+/* Hide sidebar margin on mobile/tablet */
 @media (max-width: 768px) {
-    /* .main is now handled via Tailwind translate classes in Navbar.jsx */
-
     .main-container {
         margin-left: 0 !important;
     }
+    /* Navbar slide is controlled by Tailwind translate classes in Navbar.jsx */
 }
 
-/* LAPTOP STYLES (769px - 1024px) */
+/* Tablet-range: sidebar shows at 769px+ */
 @media (min-width: 769px) and (max-width: 1024px) {
     .main-container {
         margin-left: 250px;
     }
-
     .main {
         width: 250px !important;
     }
-
-    .max-w-\[1160px\] {
-        max-width: 900px !important;
-    }
-
-    .md\:grid-cols-2 {
-        grid-template-columns: 1fr 1fr;
-    }
 }
 
-/* LARGE SCREEN STYLES (1025px and above) */
+/* Large screen sidebar */
 @media (min-width: 1025px) {
     .main-container {
         margin-left: 280px;
     }
-
     .main {
         width: 280px !important;
-    }
-
-    .md\:grid-cols-2 {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .xl\:grid-cols-3 {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-}
-
-/* UTILITY CLASSES FOR RESPONSIVE DESIGN */
-
-.responsive-padding {
-    padding: 12px;
-}
-
-@media (min-width: 481px) {
-    .responsive-padding {
-        padding: 16px;
-    }
-}
-
-@media (min-width: 769px) {
-    .responsive-padding {
-        padding: 20px;
-    }
-}
-
-@media (min-width: 1025px) {
-    .responsive-padding {
-        padding: 24px;
-    }
-}
-
-.responsive-heading {
-    font-size: 18px;
-}
-
-@media (min-width: 481px) {
-    .responsive-heading {
-        font-size: 22px;
-    }
-}
-
-@media (min-width: 769px) {
-    .responsive-heading {
-        font-size: 28px;
-    }
-}
-
-@media (min-width: 1025px) {
-    .responsive-heading {
-        font-size: 32px;
-    }
-}
-
-.responsive-text {
-    font-size: 12px;
-}
-
-@media (min-width: 481px) {
-    .responsive-text {
-        font-size: 13px;
-    }
-}
-
-@media (min-width: 769px) {
-    .responsive-text {
-        font-size: 14px;
-    }
-}
-
-@media (min-width: 1025px) {
-    .responsive-text {
-        font-size: 15px;
-    }
-}
-
-/* Container max-width adjustments */
-@media (max-width: 480px) {
-    .max-w-\[1160px\] {
-        max-width: 100% !important;
-        padding: 0 12px;
-    }
-}
-
-@media (min-width: 481px) and (max-width: 768px) {
-    .max-w-\[1160px\] {
-        max-width: 100% !important;
-        padding: 0 16px;
-    }
-}
-
-@media (min-width: 769px) {
-    .max-w-\[1160px\] {
-        max-width: 1160px;
-        padding: 0 20px;
     }
 }
