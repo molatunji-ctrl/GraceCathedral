@@ -59,10 +59,10 @@ function Home() {
             WELCOME, BELOVED
           </h3>
           <p className='text-[24px] sm:text-[32px] lg:text-[40px] text-white font-medium leading-tight'>
-            "One Fold, One She."
+            "One Fold, One Shepherd."
           </p>
           <p className='text-[10px] sm:text-[11px] font-semibold italic text-[#AA8565]'>
-            Proverb 18:22 • Theme of the Month
+            John 10:16 • Theme of the Month
           </p>
           
           <div className='flex flex-wrap gap-3 pt-4 sm:pt-5'>
