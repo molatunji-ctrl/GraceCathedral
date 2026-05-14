@@ -15,7 +15,7 @@ function Navbar({ isOpen, onClose }) {
       <aside
         className={`
           fixed top-0 left-0 h-screen z-40
-          w-[80vw] max-w-[280px]
+          w-[80vw] max-w-70
           md:w-64 lg:w-72
           bg-[#5C1F0A] text-white
           flex flex-col
@@ -30,7 +30,7 @@ function Navbar({ isOpen, onClose }) {
           {/* Close button — mobile only */}
           <button
             onClick={onClose}
-            className="self-end md:hidden text-[#D9C292] hover:text-white w-8 h-8 flex items-center justify-center rounded-lg hover:bg-[#4a1c0b] transition flex-shrink-0"
+            className="self-end md:hidden text-[#D9C292] hover:text-white w-8 h-8 flex items-center justify-center rounded-lg hover:bg-[#4a1c0b] transition shrink-0"
             aria-label="Close navigation"
           >
             <i className="fas fa-times text-[16px]"></i>
