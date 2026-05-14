@@ -79,7 +79,7 @@ function Home() {
         <section className='mt-8 sm:mt-10 lg:mt-12'>
           <div className='flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 lg:gap-8'>
             {[ { num: '1,240', label: 'MEMBERS' }, { num: '10', label: 'PROGRAMS' }, { num: '6', label: 'DEPARTMENTS' }, { num: '7', label: 'UPCOMING' } ].map((stat) => (
-              <div key={stat.label} className='bg-[#FEFCF6] border px-6 sm:px-10 md:px-12 lg:px-14 py-3 sm:py-4 rounded-2xl sm:rounded-3xl border-[#9D8365] flex flex-col items-center gap-1 min-w-[100px] sm:min-w-[120px]'>
+              <div key={stat.label} className='bg-[#FEFCF6] border px-6 sm:px-10 md:px-12 lg:px-14 py-3 sm:py-4 rounded-2xl sm:rounded-3xl border-[#9D8365] flex flex-col items-center gap-1 min-w-25 sm:min-w-30'>
                 <h2 className='text-[22px] sm:text-[24px] md:text-[26px] font-semibold text-[#8B3A14]'>{stat.num}</h2>
                 <p className='text-[10px] sm:text-[11px] text-[#AA8565] font-medium tracking-wide'>{stat.label}</p>
               </div>
