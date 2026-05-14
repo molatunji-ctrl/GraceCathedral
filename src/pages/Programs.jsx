@@ -71,22 +71,63 @@ function Programs() {
           <p className='text-[13px] sm:text-[14px] text-[#8A7355] mt-1'>Browse all church activities and services</p>
         </div>
 
+        {/* View Toggle — STANDARD TAILWIND COLORS */}
         <div className='flex gap-2 sm:gap-3 mb-6 sm:mb-7 flex-wrap'>
-          <button onClick={() => setViewMode('weekly')} className={`px-4 sm:px-6 py-2 rounded-full font-semibold text-[13px] sm:text-[14px] transition ${viewMode === 'weekly' ? 'bg-[#D4C5A8] text-[#5C1F0A] border border-[#D4C5A8]' : 'bg-white text-[#8A7355] border border-[#D4C5A8]'}`}>Weekly</button>
-          <button onClick={() => setViewMode('monthly')} className={`px-4 sm:px-6 py-2 rounded-full font-semibold text-[13px] sm:text-[14px] transition ${viewMode === 'monthly' ? 'bg-[#5C1F0A] text-white border border-[#5C1F0A]' : 'bg-white text-[#8A7355] border border-[#D4C5A8]'}`}>Monthly</button>
+          <button 
+            onClick={() => setViewMode('weekly')} 
+            className={`px-4 sm:px-6 py-2 rounded-full font-semibold text-[13px] sm:text-[14px] transition border ${
+              viewMode === 'weekly'
+                ? 'bg-amber-200 text-amber-900 border-amber-300'
+                : 'bg-white text-stone-500 border-stone-300'
+            }`}
+          >
+            Weekly
+          </button>
+          <button 
+            onClick={() => setViewMode('monthly')} 
+            className={`px-4 sm:px-6 py-2 rounded-full font-semibold text-[13px] sm:text-[14px] transition border ${
+              viewMode === 'monthly'
+                ? 'bg-amber-900 text-white border-amber-900'
+                : 'bg-white text-stone-500 border-stone-300'
+            }`}
+          >
+            Monthly
+          </button>
         </div>
 
+        {/* Week Selector */}
         {viewMode === 'weekly' && (
           <div className='flex gap-2 sm:gap-3 mb-6 sm:mb-7 flex-wrap'>
             {weeks.map(week => (
-              <button key={week} onClick={() => setSelectedWeek(week)} className={`px-3 sm:px-4 py-2 rounded-full font-semibold text-[12px] sm:text-[13px] transition ${selectedWeek === week ? 'bg-[#8B5425] text-white' : 'bg-white text-[#8A7355] border border-[#D4C5A8]'}`}>Week {week}</button>
+              <button 
+                key={week} 
+                onClick={() => setSelectedWeek(week)} 
+                className={`px-3 sm:px-4 py-2 rounded-full font-semibold text-[12px] sm:text-[13px] transition border ${
+                  selectedWeek === week
+                    ? 'bg-amber-800 text-white border-amber-800'
+                    : 'bg-white text-stone-500 border-stone-300'
+                }`}
+              >
+                Week {week}
+              </button>
             ))}
           </div>
         )}
 
+        {/* Day Filter */}
         <div className='flex gap-2 sm:gap-3 mb-6 sm:mb-8 flex-wrap'>
           {days.map(day => (
-            <button key={day} onClick={() => setSelectedDay(day)} className={`px-3 sm:px-4 py-2 rounded-full font-semibold text-[12px] sm:text-[13px] transition ${selectedDay === day ? 'bg-[#B8743A] text-white' : 'bg-white text-[#8A7355] border border-[#D4C5A8]'}`}>{day}</button>
+            <button 
+              key={day} 
+              onClick={() => setSelectedDay(day)} 
+              className={`px-3 sm:px-4 py-2 rounded-full font-semibold text-[12px] sm:text-[13px] transition border ${
+                selectedDay === day
+                  ? 'bg-amber-700 text-white border-amber-700'
+                  : 'bg-white text-stone-500 border-stone-300'
+              }`}
+            >
+              {day}
+            </button>
           ))}
         </div>
 
@@ -101,7 +142,6 @@ function Programs() {
                     <h3 className='text-[14px] sm:text-[16px] font-semibold text-[#5C1F0A] leading-snug'>{program.name}</h3>
                     <p className='text-[12px] sm:text-[13px] text-[#8A7355] mt-0.5'>{program.ministry}</p>
                   </div>
-                  {/* TAILWIND CLASSES ONLY — same pattern as Announcements */}
                   <span className={`rounded-full px-2.5 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-[11px] font-semibold whitespace-nowrap shrink-0 ${getTagStyle(program.tag)}`}>
                     {program.tag}
                   </span>
