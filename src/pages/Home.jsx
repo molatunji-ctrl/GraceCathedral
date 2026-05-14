@@ -57,10 +57,8 @@ function Home() {
           className='relative w-full rounded-2xl sm:rounded-3xl lg:rounded-4xl mt-6 sm:mt-8 lg:mt-10 overflow-hidden bg-cover bg-center'
           style={{ backgroundImage: "url('/dashboard.jpg')" }}
         >
-          {/* Dark brown overlay — this is the "filter" on top of the image */}
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(60,18,6,0.65)_0%,rgba(100,40,15,0.60)_100%)]" />
           
-          {/* Content sits on top of the overlay */}
           <div className='relative z-10 flex flex-col gap-3 px-5 sm:px-8 lg:px-10 py-10 sm:py-12 lg:py-14'>
             <h3 className='text-[11px] sm:text-[12px] font-semibold text-[#D4A017] tracking-wide'>
               WELCOME, BELOVED
@@ -182,9 +180,13 @@ function Home() {
                         </div>
                       </div>
                       <div className='flex flex-row sm:flex-col items-center sm:items-end gap-2 shrink-0'>
+                        {/* PASTEL TAG — colored text on light background */}
                         <span 
-                          className='rounded-full px-2.5 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-[11px] font-semibold text-white' 
-                          style={{ backgroundColor: program.color }}
+                          className='rounded-full px-2.5 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-[11px] font-semibold whitespace-nowrap'
+                          style={{ 
+                            backgroundColor: program.color + '18',  // ~9% opacity pastel
+                            color: program.color 
+                          }}
                         >
                           {program.tag}
                         </span>
