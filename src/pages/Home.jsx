@@ -59,7 +59,7 @@ function Home() {
         </div>
       </section>
 
-      <main className='max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-9 pb-12 sm:pb-16'>
+      <main className='max-w-350 mx-auto px-4 sm:px-6 lg:px-9 pb-12 sm:pb-16'>
         
         {/* Hero */}
         <div className='relative w-full rounded-2xl sm:rounded-3xl lg:rounded-4xl mt-6 sm:mt-8 lg:mt-10 overflow-hidden bg-cover bg-center' style={{ backgroundImage: "url('/dashboard.jpg')" }}>
