@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import Prop from './Prop';
+import Prop from './card';
 
 const navLinkClasses = ({ isActive }) =>
   `flex items-center gap-3 px-3 py-2.5 rounded-xl transition w-full text-[13px] md:text-[14px] lg:text-[15px] ${
