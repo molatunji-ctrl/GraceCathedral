@@ -47,9 +47,7 @@ function Announcement() {
                 </div>
                 <div className="header-right flex justify-center items-center gap-2">
                     <h4 className='text-[14px] px-3 py-1.5 bg-[#F5E8C0] text-[#5C1F0A] font-semibold border border-transparent rounded-full'>
-                        <i className="fa-solid fa-user-group text-[15px] pr-4 hidden sm:inline"></i>1,240 Members</h4>
-                        
-                         <span className="sm:hidden">1,240</span>
+                        <i className="fa-solid fa-user-group text-[15px] pr-4"></i>1,240 Members</h4>
                     <Link to="/announcement" className='text-[#5C1F0A] bg-[#eedcb8] rounded-xl px-2 py-1.5 border border-[#D4C5A8]'><i className="fa-regular fa-bell"></i></Link>
                 </div>
               </div>
